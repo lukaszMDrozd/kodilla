@@ -27,13 +27,16 @@ public class CollectionTestSuite {
         //Given
         ArrayList<Integer> testList = new ArrayList<>();
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+        boolean thrown = false;
 
         try {
             oddNumbersExterminator.exterminate(testList);
         } catch(Exception e) {
             exception.expectMessage("Given List is empty");
+            thrown = true;
         }
 
+        Assert.assertTrue(thrown);
     }
 
     @Test
