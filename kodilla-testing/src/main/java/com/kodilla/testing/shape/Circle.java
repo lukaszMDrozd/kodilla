@@ -10,21 +10,16 @@ public class Circle implements Shape{
         this.radius = radius;
     }
 
-    public String getCircleName() {
-        return circleName;
-    }
-
     public int getRadius() {
         return radius;
     }
 
-    public String getShapeName(Object o){
-        Circle circle = (Circle) o;
-        return circle.getCircleName();
+    public String getShapeName(){
+        return this.circleName;
     }
 
-    public int getField(Object o){
-        return 3 * radius * radius;
+    public int getField(){
+        return 3 * getRadius() * getRadius();
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.kodilla.testing.collection;
 
 import org.junit.*;
-import org.junit.rules.ExpectedException;
 import org.junit.rules.TestName;
 
 import java.util.ArrayList;
@@ -10,7 +9,6 @@ public class CollectionTestSuite {
 
     @Rule
     public TestName name = new TestName();
-    public final ExpectedException exception = ExpectedException.none();
 
     @Before
     public void before() {
@@ -22,21 +20,15 @@ public class CollectionTestSuite {
         System.out.println("Test Case: " + name.getMethodName() + " end");
     }
 
-    @Test
-    public void testOddNumbersExterminatorEmptyList() {
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testOddNumbersExterminatorEmptyList() throws IndexOutOfBoundsException{
         //Given
         ArrayList<Integer> testList = new ArrayList<>();
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-        boolean thrown = false;
 
-        try {
-            oddNumbersExterminator.exterminate(testList);
-        } catch(Exception e) {
-            exception.expectMessage("Given List is empty");
-            thrown = true;
-        }
-
-        Assert.assertTrue(thrown);
+        //When
+        //Then
+        oddNumbersExterminator.exterminate(testList);
     }
 
     @Test

@@ -12,10 +12,6 @@ public class Triangle implements Shape{
         this.triangleSideTwo = triangleSideTwo;
     }
 
-    public String getTriangleName() {
-        return triangleName;
-    }
-
     public int getTriangleSideOne() {
         return triangleSideOne;
     }
@@ -24,13 +20,12 @@ public class Triangle implements Shape{
         return triangleSideTwo;
     }
 
-    public String getShapeName(Object o){
-        Triangle square = (Triangle) o;
-        return square.getTriangleName();
+    public String getShapeName(){
+        return this.triangleName;
     }
 
-    public int getField(Object o){
-        return triangleSideOne * triangleSideOne;
+    public int getField(){
+        return (getTriangleSideOne() * getTriangleSideTwo()) / 2;
     }
 
     @Override

@@ -10,21 +10,16 @@ public class Square implements Shape{
         this.squareSide = squareSide;
     }
 
-    public String getSquareName() {
-        return squareName;
-    }
-
     public int getSquareSide() {
         return squareSide;
     }
 
-    public String getShapeName(Object o){
-        Square square = (Square) o;
-        return square.getSquareName();
+    public String getShapeName(){
+        return this.squareName;
     }
 
-    public int getField(Object o){
-        return squareSide * squareSide;
+    public int getField(){
+        return getSquareSide() * getSquareSide();
     }
 
     @Override
