@@ -1,53 +1,26 @@
 package com.kodilla.stream;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.*;
-import com.kodilla.stream.reference.FunctionalCalculator;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
         public static void main(String[] args) {
-            System.out.println("Welcome to module 7 - Stream");
-/*
-            SaySomething saySomething = new SaySomething();
-            saySomething.say();
+            Forum theListOfUserForum = new Forum();
+            Map<Integer, ForumUser> theResultListOfUserForum = theListOfUserForum.getUserList().stream()
+                    .filter(forumUser -> forumUser.getUserSex() == ForumUser.UserSex.M)
+                    .filter(forumUser -> forumUser.getDateOfBirth().isBefore(LocalDate.now().minusYears(20)))
+                    .filter(forumUser -> forumUser.getPublishedPostsNumber() >= 1)
+                    .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
 
-            Processor processor = new Processor();
-            ExecuteSaySomething executeSaySomething = new ExecuteSaySomething();
-            processor.execute(executeSaySomething);
+            System.out.println("Liczba odflitrowanych lementów w liście użytkowników forum: " + theResultListOfUserForum.size());
 
-            Executor codeToExecute = () -> System.out.println("This is an example text.");
-            processor.execute(codeToExecute);
+            theResultListOfUserForum.values().stream()
+                    .forEach(s -> System.out.println(s));
 
-            ExpressionExecutor expressionExecutor = new ExpressionExecutor();
-
-            System.out.println("Calculating expressions with lambdas");
-            expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
-            expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
-            expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
-            expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
-
-            System.out.println("Calculating expressions with method references");
-            expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
-            expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
-            expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
-            expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);*/
-
-/*            PoemBeautifier poemBeautifier = new PoemBeautifier();
-
-            String result = poemBeautifier.beautify("AAA", textToDecorate -> "ABC" + textToDecorate + "ABC");
-            System.out.println(result);
-
-            result = poemBeautifier.beautify("aaa", textToDecorate -> textToDecorate.toUpperCase());
-            System.out.println(result);
-
-            result = poemBeautifier.beautify("abc", textToDecorate -> textToDecorate + "CCC" + textToDecorate);
-            System.out.println(result);
-
-            result = poemBeautifier.beautify("ABCDEF", textToDecorate ->  textToDecorate.charAt(0) + textToDecorate + textToDecorate.charAt(textToDecorate.length()-1));
-            System.out.println(result);*/
-
-            System.out.println("Using Stream to generate even numbers from 1 to 20");
-            NumbersGenerator.generateEven(20);
         }
 }
+
+
