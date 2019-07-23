@@ -15,7 +15,7 @@ public class StreamMain {
                     .filter(forumUser -> forumUser.getPublishedPostsNumber() >= 1)
                     .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
 
-            System.out.println("Liczba odflitrowanych lementów w liście użytkowników forum: " + theResultListOfUserForum.size());
+            System.out.println("Liczba odflitrowanych elementów w liście użytkowników forum: " + theResultListOfUserForum.size());
 
             theResultListOfUserForum.values().stream()
                     .forEach(s -> System.out.println(s));
