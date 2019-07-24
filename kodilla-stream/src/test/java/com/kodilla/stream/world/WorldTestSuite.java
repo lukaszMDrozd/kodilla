@@ -57,7 +57,7 @@ public class WorldTestSuite {
         //Then
         BigDecimal expectedNumberOfPeople = new BigDecimal("18");
         Assert.assertEquals(expectedNumberOfPeople, numberOfPeople);
-        Assert.assertTrue(world.toString().equals("W moim zmyślonym świecie znajduje się 18 ludzi"));
+        Assert.assertEquals(world.toString(), "W moim zmyślonym świecie znajduje się 18 ludzi");
         Assert.assertEquals(3, world.getTheListOfContinents().size());
         Assert.assertEquals(3, australia.getTheListOfCountries().size());
     }

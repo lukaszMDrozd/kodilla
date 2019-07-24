@@ -26,8 +26,7 @@ public class Country {
 
     @Override
     public int hashCode() {
-        int result = countryName.hashCode();
-        return result;
+        return  countryName.hashCode();
     }
 
     @Override

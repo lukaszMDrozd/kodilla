@@ -31,8 +31,7 @@ public final class Continent {
 
     @Override
     public int hashCode() {
-        int result = continentName.hashCode();
-        return result;
+        return continentName.hashCode();
     }
 
     @Override
