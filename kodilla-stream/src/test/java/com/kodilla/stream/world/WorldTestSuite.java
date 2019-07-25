@@ -46,9 +46,9 @@ public class WorldTestSuite {
         australia.addCountry(new Country(new BigDecimal("2"), "Fidźi"));
         australia.addCountry(new Country(new BigDecimal("3"), "Tonga"));
 
-        world.getTheListOfContinents().add(africa);
-        world.getTheListOfContinents().add(europe);
-        world.getTheListOfContinents().add(australia);
+        world.getListOfContinents().add(africa);
+        world.getListOfContinents().add(europe);
+        world.getListOfContinents().add(australia);
 
         //When
         BigDecimal numberOfPeople = world.getPeopleQuantity();
@@ -58,7 +58,7 @@ public class WorldTestSuite {
         BigDecimal expectedNumberOfPeople = new BigDecimal("18");
         Assert.assertEquals(expectedNumberOfPeople, numberOfPeople);
         Assert.assertEquals(world.toString(), "W moim zmyślonym świecie znajduje się 18 ludzi");
-        Assert.assertEquals(3, world.getTheListOfContinents().size());
-        Assert.assertEquals(3, australia.getTheListOfCountries().size());
+        Assert.assertEquals(3, world.getListOfContinents().size());
+        Assert.assertEquals(3, australia.getListOfCountries().size());
     }
 }

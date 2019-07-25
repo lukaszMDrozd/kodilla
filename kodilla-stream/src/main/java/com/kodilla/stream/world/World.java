@@ -6,15 +6,15 @@ import java.util.Set;
 
 public final class World {
 
-    private final Set<Continent> theListOfContinents = new HashSet<>();
+    private final Set<Continent> listOfContinents = new HashSet<>();
 
-    public Set<Continent> getTheListOfContinents() {
-        return theListOfContinents;
+    public Set<Continent> getListOfContinents() {
+        return listOfContinents;
     }
 
     public final BigDecimal getPeopleQuantity(){
-        return theListOfContinents.stream()
-                .flatMap(continent -> continent.getTheListOfCountries().stream())
+        return listOfContinents.stream()
+                .flatMap(continent -> continent.getListOfCountries().stream())
                 .map(Country::getPeopleQuantity)
                 .reduce(BigDecimal.ZERO, (sum, current) ->  sum = sum.add(current));
     }

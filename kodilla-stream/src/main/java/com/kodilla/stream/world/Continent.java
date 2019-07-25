@@ -7,18 +7,18 @@ import java.util.Set;
 public final class Continent {
 
     private final String continentName;
-    private final Set<Country> theListOfCountries = new HashSet<>();
+    private final Set<Country> listOfCountries = new HashSet<>();
 
     public Continent(String continentName) {
         this.continentName = continentName;
     }
 
     public void addCountry(Country country){
-        theListOfCountries.add(country);
+        listOfCountries.add(country);
     }
 
-    public Set<Country> getTheListOfCountries() {
-        return theListOfCountries;
+    public Set<Country> getListOfCountries() {
+        return listOfCountries;
     }
 
     @Override
@@ -36,6 +36,6 @@ public final class Continent {
 
     @Override
     public String toString(){
-        return continentName + " zawiera: " + theListOfCountries;
+        return continentName + " zawiera: " + listOfCountries;
     }
 }
