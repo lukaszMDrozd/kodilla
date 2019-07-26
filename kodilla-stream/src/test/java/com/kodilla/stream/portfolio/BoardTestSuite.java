@@ -1,6 +1,7 @@
 package com.kodilla.stream.portfolio;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,7 +12,10 @@ import static java.util.stream.Collectors.toList;
 
 public class BoardTestSuite {
 
-    public Board prepareTestData() {
+    private Board project;
+
+    @Before
+    public void prepareTestData() {
         //users
         User user1 = new User("developer1", "John Smith");
         User user2 = new User("projectmanager1", "Nina White");
@@ -66,20 +70,16 @@ public class BoardTestSuite {
         TaskList taskListDone = new TaskList("Done");
         taskListDone.addTask(task6);
         //board
-        Board project = new Board("Project Weather Prediction");
+        project = new Board("Project Weather Prediction");
         project.addTaskList(taskListToDo);
         project.addTaskList(taskListInProgress);
         project.addTaskList(taskListDone);
-        return project;
     }
 
     @Test
     public void testAddTaskList() {
-
         //Given
-        Board project = prepareTestData();
         //When
-
         //Then
         Assert.assertEquals(3, project.getTaskLists().size());
     }
@@ -87,7 +87,6 @@ public class BoardTestSuite {
     @Test
     public void testAddTaskListFindUsersTasks(){
         //Given
-        Board project = prepareTestData();
         //When
         User user = new User("developer1", "John Smith");
         List<Task> tasks = project.getTaskLists().stream()
@@ -104,8 +103,6 @@ public class BoardTestSuite {
     @Test
     public void testAddTaskListFindOutdatedTasks(){
         //Given
-        Board project = prepareTestData();
-
         //When
         List<TaskList> undoneTasks = new ArrayList<>();
         undoneTasks.add(new TaskList("To do"));
@@ -124,8 +121,6 @@ public class BoardTestSuite {
     @Test
     public void testAddTaskListFindLongTasks(){
         //Given
-        Board project = prepareTestData();
-
         //When
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
@@ -143,7 +138,6 @@ public class BoardTestSuite {
     @Test
     public void testAddTaskListAverageWorkingOnTask(){
         //Given
-        Board project = prepareTestData();
         double expectedAverageWorkingOnTask = 10.0;
 
         //When
