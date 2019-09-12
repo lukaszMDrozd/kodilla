@@ -1,7 +1,5 @@
 package com.kodilla.good.patterns.challanges;
 
-import java.time.LocalDateTime;
-
 public class ProductOrderService {
 
     private InformationService informationService;
