@@ -1,10 +1,13 @@
 package com.kodilla.good.patterns.flightBrowser;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class DepartureCity {
 
     private String departureCityName;
+    private LocalDateTime localDateTime = LocalDateTime.now();
 
     public DepartureCity(final String departureCityName) {
         this.departureCityName = departureCityName;
@@ -27,7 +30,17 @@ public class DepartureCity {
         return departureCityName;
     }
 
+    public LocalDateTime getLocalDateTime() {
+        return localDateTime;
+    }
+
+    public String getFormatTimeNow(LocalDateTime now) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formatDateTime = now.format(formatter);
+        return formatDateTime;
+    }
+
     public String toString() {
-        return getDepartureCityName();
+        return "Udaneg wylotu z: " + getDepartureCityName() + " o godzinie: " + getFormatTimeNow(getLocalDateTime());
     }
 }
