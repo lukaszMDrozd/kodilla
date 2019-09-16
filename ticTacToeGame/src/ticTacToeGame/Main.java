@@ -10,11 +10,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
+
         Parent root = FXMLLoader.load(getClass().getResource("TicTacToe.fxml"));
         primaryStage.setTitle("TicTacToe Game");
         Scene scene = new Scene(root, 800, 800);
-        primaryStage.setScene(scene);
         scene.getStylesheets().add(getClass().getResource("TicTacToe.css").toExternalForm());
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 

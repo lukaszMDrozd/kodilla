@@ -2,43 +2,18 @@
     -fx-background-color: azure;
 }
 
-#hbox00 {
+#HBox00, #HBox01, #HBox10, #HBox11{
     -fx-border-style: hidden solid solid hidden;
     -fx-border-color: greenyellow;
 }
 
-#hbox10 {
-    -fx-border-style: hidden solid solid hidden;
-    -fx-border-color: greenyellow;
-}
-
-#hbox02 {
-    -fx-border-style: hidden hidden solid solid;
-    -fx-border-color: greenyellow;
-}
-
-#hbox01 {
+#HBox02, #HBox12 {
     -fx-border-style: hidden hidden solid hidden;
     -fx-border-color: greenyellow;
 }
 
-#hbox12 {
-    -fx-border-style: hidden hidden solid solid;
-    -fx-border-color: greenyellow;
-}
-
-#hbox11 {
-    -fx-border-style: hidden hidden solid hidden;
-    -fx-border-color: greenyellow;
-}
-
-#hbox20 {
+#HBox20, #HBox21 {
     -fx-border-style: hidden solid hidden hidden;
-    -fx-border-color: greenyellow;
-}
-
-#hbox22 {
-    -fx-border-style: hidden hidden hidden solid;
     -fx-border-color: greenyellow;
 }
 
